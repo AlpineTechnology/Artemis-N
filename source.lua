@@ -5,7 +5,8 @@ assert(type(syn.protect_gui) == "function", "protect_gui not supported, please u
 
 function protect(g)
   assert(typeof(g) == "Instance", "GUI expected")
-
+  
+  g.Parent = game.CoreGui
   sethiddenproperty(g, "OnTopOfCoreBlur", true)
   syn.protect_gui(g)
 end
