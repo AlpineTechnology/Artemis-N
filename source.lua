@@ -23,3 +23,11 @@ protect(project)
 
 
 return rbxmSuite.require(project["Main Core"])
+--[[
+FUNCTIONS:
+LIBRARY:AddTheme(args: table) -- Add Themes
+LIBRARY:SetTheme(theme_name: string) -- Sets the Theme
+
+CURRENT OFFICIAL THEMES:
+"EggShell", "EggShellInv"
+]]
