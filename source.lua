@@ -11,7 +11,7 @@ function protect(g)
 end
 
 -- Auto Upd --
-local ver = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlpineTechnology/Artemis-N/main/ver"))()
+local ver = tostring(loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlpineTechnology/Artemis-N/main/ver")))
 local rbxm_name = "Artemis.N.-." .. ver .. ".rbxm"
 
 -- Execution --
