@@ -10,7 +10,7 @@ function protect(g)
 end
 
 local rbxmSuite = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/rbxm-suite/master/src/rbxm-suite.lua"))()
-local getRel = rbxmSuite.download("AlpineTechnology/Artemis-N@latest", "Artemis.N.-.v1.0.0.rbxm")
+local getRel = rbxmSuite.download("AlpineTechnology/Artemis-N@latest", "Artemis.N.-.v1.0.1.rbxm")
 local project = rbxmSuite.launch(getRel)
 protect(project)
 
