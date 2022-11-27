@@ -1,5 +1,5 @@
 -- Protection --
-assert(sethiddentproperty, "sethiddenproperty not supported, please use another exploit.")
+assert(sethiddenproperty, "sethiddenproperty not supported, please use another exploit.")
 assert(type(syn) == "table", "syn library not supported, please use another exploit.")
 assert(syn.protect_gui, "protect_gui not supported, please use another exploit.")
 
