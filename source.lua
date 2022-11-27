@@ -1,7 +1,7 @@
 -- Protection --
-assert(sethiddenproperty, "sethiddenproperty not supported, please use another exploit.")
+assert(type(sethiddenproperty) == "function", "sethiddenproperty not supported, please use another exploit.")
 assert(type(syn) == "table", "syn library not supported, please use another exploit.")
-assert(syn.protect_gui, "protect_gui not supported, please use another exploit.")
+assert(type(syn.protect_gui) == "function", "protect_gui not supported, please use another exploit.")
 
 function protect(g)
   assert(typeof(g) == "Instance" and g:IsA("LuaSourceContainer"), "GUI expected")
