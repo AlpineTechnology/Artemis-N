@@ -9,8 +9,12 @@ function protect(g)
   syn.protect_gui(g)
 end
 
+-- Auto Upd:
+local ver = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlpineTechnology/Artemis-N/main/ver"))()
+local rbxm_name = "Artemis.N.-." .. ver .. ".rbxm"
+
 local rbxmSuite = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/rbxm-suite/master/src/rbxm-suite.lua"))()
-local getRel = rbxmSuite.download("AlpineTechnology/Artemis-N@latest", "Artemis.N.-.v1.0.1.rbxm")
+local getRel = rbxmSuite.download("AlpineTechnology/Artemis-N@latest", rbxm_name)
 local project = rbxmSuite.launch(getRel)
 protect(project)
 
