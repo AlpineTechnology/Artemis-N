@@ -6,7 +6,6 @@ assert(type(syn.protect_gui) == "function", "protect_gui not supported, please u
 function protect(g)
   assert(typeof(g) == "Instance", "GUI expected")
   
-  g.Parent = game.CoreGui
   sethiddenproperty(g, "OnTopOfCoreBlur", true)
   syn.protect_gui(g)
 end
@@ -19,16 +18,8 @@ local rbxm_name = "Artemis.N.-." .. ver .. ".rbxm"
 local rbxmSuite = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/rbxm-suite/master/src/rbxm-suite.lua"))()
 local getRel = rbxmSuite.download("AlpineTechnology/Artemis-N@latest", rbxm_name)
 local project = rbxmSuite.launch(getRel)
+project.Parent = game.CoreGui
 protect(project)
 
+
 return rbxmSuite.require(project["Main Core"])
---[[
-FUNCTIONS:
-LIBRARY:AddTheme(args: table) -- Add Themes
-LIBRARY:SetTheme(theme_name: string) -- Sets the Theme
-
-CURRENT OFFICIAL THEMES:
-"EggShell", "EggShellInv"
-
-
-]]
