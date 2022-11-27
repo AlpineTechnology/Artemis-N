@@ -4,7 +4,7 @@ assert(type(syn) == "table", "syn library not supported, please use another expl
 assert(type(syn.protect_gui) == "function", "protect_gui not supported, please use another exploit.")
 
 function protect(g)
-  assert(typeof(g) == "Instance" and g:IsA("LuaSourceContainer"), "GUI expected")
+  assert(typeof(g) == "Instance", "GUI expected")
 
   sethiddenproperty(g, "OnTopOfCoreBlur", true)
   syn.protect_gui(g)
