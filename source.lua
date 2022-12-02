@@ -9,15 +9,19 @@ function protect(g)
   sethiddenproperty(g, "OnTopOfCoreBlur", true)
   syn.protect_gui(g)
 end
+-- Variables & Set-Up --
+local rbxmSuite, ver = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/rbxm-suite/master/src/rbxm-suite.lua"))(), 
+tostring(loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlpineTechnology/Artemis-N/main/ver.lua"))())
+
+local getRel = rbxmSuite.download("AlpineTechnology/Artemis-N@latest", rbxm_name)
+local project = rbxmSuite.launch(getRel)
+
+if game:WaitForChild("CoreGui"):FindFirstChild(project.Name) then game.CoreGui[project.Name]:Destroy() end
 
 -- Auto Upd --
-local ver = tostring(loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlpineTechnology/Artemis-N/main/ver.lua"))())
 local rbxm_name = "Artemis.N.-." .. ver .. ".rbxm"
 
 -- Execution --
-local rbxmSuite = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/rbxm-suite/master/src/rbxm-suite.lua"))()
-local getRel = rbxmSuite.download("AlpineTechnology/Artemis-N@latest", rbxm_name)
-local project = rbxmSuite.launch(getRel)
 project.Parent = game.CoreGui
 protect(project)
 
