@@ -1,37 +1,55 @@
--- Protection --
-assert(type(sethiddenproperty) == "function", "sethiddenproperty not supported, please use another exploit.")
-assert(type(syn) == "table", "syn library not supported, please use another exploit.")
-assert(type(syn.protect_gui) == "function", "protect_gui not supported, please use another exploit.")
+-- getgenv().AN_SAFEMODE is safemode var
+local src, gui
 
-function protect(g)
-  assert(typeof(g) == "Instance", "GUI expected")
-  
-  sethiddenproperty(g, "OnTopOfCoreBlur", true)
-  syn.protect_gui(g)
-end
--- Variables & Set-Up --
-local rbxmSuite, ver = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/rbxm-suite/master/src/rbxm-suite.lua"))(), 
-tostring(loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlpineTechnology/Artemis-N/main/ver.lua"))())
+local rbxmSuite = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/rbxm-suite/master/src/rbxm-suite.lua"))()
+local ver = tostring(loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlpineTechnology/Artemis-N/main/ver.lua"))())
 
+local rbxm_name = "Artemis.N.-." .. ver .. ".rbxm"
 local getRel = rbxmSuite.download("AlpineTechnology/Artemis-N@latest", rbxm_name)
 local project = rbxmSuite.launch(getRel)
 
-if game:WaitForChild("CoreGui"):FindFirstChild(project.Name) then game.CoreGui[project.Name]:Destroy() end
+-- Identification --
+-- this is to prevent massive usage of Artemis upon execution (Artemis may use more memory or idk in future upds so why not) :)
 
--- Auto Upd --
-local rbxm_name = "Artemis.N.-." .. ver .. ".rbxm"
+for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do
+    if v.Name == "Artemis N" or v:FindFirstChild("identifier") then
+        v:Destroy()
+    else
+        src, gui = rbxmSuite.require(project["Main Core"]), project
+    end
+end
 
--- Execution --
-project.Parent = game.CoreGui
-protect(project)
 
+getgenv().AN_SAFEMODE = true
+-- Protection --
+if getgenv().AN_SAFEMODE then
+    assert(type(sethiddenproperty) == "function", "sethiddenproperty not supported, please use another exploit.")
+    assert(type(syn) == "table", "syn library not supported, please use another exploit.")
+    assert(type(syn.protect_gui) == "function", "protect_gui not supported, please use another exploit.")
 
-return rbxmSuite.require(project["Main Core"])
---[[
-FUNCTIONS:
-LIBRARY:AddTheme(args: table) -- Add Themes
-LIBRARY:SetTheme(theme_name: string) -- Sets the Theme
+    function protect(g)
+        assert(typeof(g) == "Instance", "GUI expected")
+        
+        sethiddenproperty(g, "OnTopOfCoreBlur", true)
+        syn.protect_gui(g)
+    end
 
-CURRENT OFFICIAL THEMES:
-"EggShell", "EggShellInv"
-]]
+    function generate_serial()
+        local holder = {}
+        local min_max = math.random(5,35)
+        for str = 1, min_max do
+            holder[str] = string.char(math.random(35,130))
+        end
+        return table.concat(holder)
+    end
+
+    -- Execution --
+    gui.Parent = game.CoreGui
+    gui.Name = generate_serial()
+    protect(gui)
+
+else
+    gui.Parent = game.CoreGui
+end
+
+return src
