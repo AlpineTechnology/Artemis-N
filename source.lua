@@ -14,11 +14,10 @@ local project = rbxmSuite.launch(getRel)
 for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do
     if v.Name == "Artemis N" or v:FindFirstChild("identifier") then
         v:Destroy()
-    else
-        src, gui = rbxmSuite.require(project["Main Core"]), project
     end
 end
 
+src, gui = rbxmSuite.require(project["Main Core"]), project
 
 getgenv().AN_SAFEMODE = true
 -- Protection --
