@@ -19,7 +19,6 @@ end
 
 src, gui = rbxmSuite.require(project["Main Core"]), project
 
-getgenv().AN_SAFEMODE = true
 -- Protection --
 if getgenv().AN_SAFEMODE then
     assert(type(sethiddenproperty) == "function", "sethiddenproperty not supported, please use another exploit.")
