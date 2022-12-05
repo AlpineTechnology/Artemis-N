@@ -12,7 +12,7 @@ local project = rbxmSuite.launch(getRel)
 -- this is to prevent massive usage of Artemis upon execution (Artemis may use more memory or idk in future upds so why not) :)
 
 for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do
-    if v.Name == "Artemis N" or v:FindFirstChild("identifier") then
+    if v.Name == "Artemis N" or v:FindFirstChild("indetifier") then
         v:Destroy()
     end
 end
