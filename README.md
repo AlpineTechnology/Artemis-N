@@ -3,9 +3,9 @@
 
 <p>Artemis N</p>
 </h1>
-<p align="center">A Sleek, Modern, Simple and Fast Notification Library</p>
+<p align="center">A Sleek, Modern, Simple, And Fast Notification Library For Your Game</p>
 <h1>Documentation:</h2>
-<h2>Booting the Library:</h2>
+<h2>Booting the Library (Executor):</h2>
 
 ```lua
 local Artemis = loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/AlpineTechnology/Artemis-N/main/source.lua'))()
