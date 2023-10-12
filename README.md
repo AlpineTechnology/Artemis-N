@@ -11,9 +11,9 @@
 local Artemis = loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/AlpineTechnology/Artemis-N/main/source.lua'))()
 ```
 
-<h3>Setting Up Safe (Secure) Mode</h3>
+<h3>Setting Up Safe (Secure) Mode (For Executors)</h3>
 
-Safe (Secure) Mode is a mode that makes `Artemis` way less detectable, this prevents the game's Anti-Cheat from banning / kicking you because of our Notification Library exists in your client. To turn this on you must have this code above the loadstring:
+Safe (Secure) Mode is a mode that makes `Artemis` way less detectable, this prevents the game's Anti-Cheat from banning/kicking you because our Notification Library exists in your client. To turn this on you must have this code above the loadstring:
 
 `getgenv().AN_SAFEMODE = true;`
 
